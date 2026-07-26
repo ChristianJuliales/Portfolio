@@ -1,5 +1,4 @@
 import { 
-  Film, 
   Coffee, 
   Terminal as CodeIcon, 
   Layout, 
@@ -12,7 +11,6 @@ import {
 
 export default function Home({ setActiveTab }) {
   const techStack = [
-    { name: 'CapCut', desc: 'Video Editing', icon: Film, color: 'var(--color-primary)' },
     { name: 'Java', desc: 'Programming', icon: Coffee, color: 'var(--color-secondary)' },
     { name: 'Visual Basic', desc: 'Development', icon: CodeIcon, color: 'var(--color-tertiary)' },
     { name: 'HTML', desc: 'Web Core', icon: Layout, color: 'var(--color-primary)' },
@@ -21,20 +19,6 @@ export default function Home({ setActiveTab }) {
   ];
 
   const featuredProjects = [
-    {
-      title: 'Payroll System',
-      category: 'Visual Basic',
-      platform: 'Database',
-      desc: 'A robust system designed for automating payroll calculations and employee record management.',
-      img: '/Payroll.png',
-    },
-    {
-      title: 'Scientific Calculator',
-      category: 'Java',
-      platform: 'Desktop App',
-      desc: 'A feature-rich desktop calculator implementing complex mathematical logic and clean UI.',
-      img: '/Calculator.png',
-    },
     {
       title: 'Philippine Heritage (Lakbay-Wika)',
       category: 'HTML/CSS',

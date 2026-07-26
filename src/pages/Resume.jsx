@@ -92,14 +92,6 @@ const seedResume = {
         { name: 'CSS3', level: 'Advanced' }
       ]
     },
-    {
-      title: 'Creative & Multimedia',
-      skills: [
-        { name: 'Video Editing', level: 'Advanced' },
-        { name: 'CapCut Studio', level: 'Advanced' },
-        { name: 'Media Content Creation', level: 'Intermediate' }
-      ]
-    }
   ],
   contacts: [
     { name: 'Email', value: 'dave.juliales@gmail.com', url: 'mailto:dave.juliales@gmail.com' },
