@@ -1,62 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Award, Calendar, ShieldCheck, X, CheckCircle } from 'lucide-react';
-import { api } from '../utils/api';
 
 const seedCertifications = [
   {
     _id: 'seed-cert-1',
-    title: 'Java Foundations Certified Associate',
-    issuer: 'Oracle Academy',
-    dateIssued: '2023',
-    imageUrl: '/favicon.svg',
-    certificateLink: ''
+    title: 'Introduction to Python',
+    issuer: 'Data Camp',
+    dateIssued: '2026',
+    imageUrl: '/ITP.png',
+    certificateLink: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/34a34dc064fc8bcab45553a0875ca9efbe0a225e'
   },
   {
     _id: 'seed-cert-2',
-    title: 'Responsive Web Design',
-    issuer: 'freeCodeCamp',
-    dateIssued: '2023',
-    imageUrl: '/favicon.svg',
-    certificateLink: ''
+    title: 'Python Essentials 1',
+    issuer: 'Cisco Networking Academy',
+    dateIssued: '2026',
+    imageUrl: '/PE1.png',
+    certificateLink: 'https://www.credly.com/badges/c22e0578-74ef-4b04-a775-e1c4847880ce'
   },
   {
     _id: 'seed-cert-3',
-    title: 'JavaScript Algorithms and Data Structures',
-    issuer: 'freeCodeCamp',
-    dateIssued: '2024',
-    imageUrl: '/favicon.svg',
-    certificateLink: ''
+    title: 'Introduction to Data Science',
+    issuer: 'Cisco Networking Academy',
+    dateIssued: '2026',
+    imageUrl: '/ItDS.png',
+    certificateLink: 'https://www.credly.com/badges/e028e328-eba0-4ed5-8ca0-0c8464faefe9'
   },
   {
     _id: 'seed-cert-4',
-    title: 'TVL - Programming Academic Excellence',
-    issuer: 'San Francisco High School',
-    dateIssued: '2023',
-    imageUrl: '/favicon.svg',
-    certificateLink: ''
+    title: 'Understanding Data Engineering',
+    issuer: 'Data Camp',
+    dateIssued: '2026',
+    imageUrl: '/UDE.png',
+    certificateLink: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/91de8789869a637371867ad82d91dfa17eac2a46?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa'
   }
 ];
 
 export default function Certification() {
   const [activeCert, setActiveCert] = useState(null);
-  const [certifications, setCertifications] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    api.getCertificates()
-      .then((data) => {
-        if (data && data.length > 0) {
-          setCertifications(data);
-        } else {
-          setCertifications(seedCertifications);
-        }
-      })
-      .catch((err) => {
-        console.error('Failed to load certificates from DB, using defaults', err);
-        setCertifications(seedCertifications);
-      })
-      .finally(() => setLoading(false));
-  }, []);
 
   return (
     <div className="container animate-fade-in" style={{ padding: '40px 24px' }}>
@@ -71,15 +52,10 @@ export default function Certification() {
       </header>
 
       {/* Grid of Certifications */}
-      {loading ? (
-        <div style={{ textAlign: 'center', padding: '40px 0', color: 'var(--color-text-muted)', fontFamily: 'var(--font-mono)' }}>
-          Retrieving certificates database...
-        </div>
-      ) : (
-        <div className="grid-responsive">
-          {certifications.map((cert) => (
-            <div 
-              key={cert._id}
+      <div className="grid-responsive">
+        {seedCertifications.map((cert) => (
+          <div 
+            key={cert._id}
               className="card-glass"
               style={{
                 display: 'flex',
@@ -147,7 +123,6 @@ export default function Certification() {
             </div>
           ))}
         </div>
-      )}
 
       {/* Certificate Viewer Modal */}
       {activeCert && (
@@ -202,100 +177,126 @@ export default function Certification() {
               <X size={18} />
             </button>
 
-            {/* Certificate Layout Mockup */}
-            <div style={{
-              border: '2px dashed rgba(255, 255, 255, 0.08)',
-              borderRadius: '16px',
-              padding: '40px 20px',
-              textAlign: 'center',
-              backgroundColor: 'rgba(15, 23, 42, 0.5)',
-              backgroundImage: 'radial-gradient(circle at center, rgba(168, 85, 247, 0.03) 0%, transparent 80%)',
-              position: 'relative',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center'
-            }}>
-              
-              {/* Badge Icon */}
+            {/* Certificate Content */}
+            {activeCert.imageUrl && activeCert.imageUrl !== '/favicon.svg' ? (
               <div style={{
-                width: '72px',
-                height: '72px',
-                borderRadius: '50%',
-                backgroundColor: 'rgba(168, 85, 247, 0.1)',
-                border: '2px solid var(--color-primary)',
+                borderRadius: '16px',
+                overflow: 'hidden',
+                border: '1px solid var(--color-border)',
+                backgroundColor: 'rgba(15, 23, 42, 0.3)',
                 display: 'flex',
+                justifyContent: 'center',
                 alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: '24px',
-                color: 'var(--color-primary)'
+                maxHeight: '55vh',
+                width: '100%',
+                boxShadow: 'inset 0 0 20px rgba(0, 0, 0, 0.6)'
               }}>
-                <Award size={36} />
+                <img 
+                  src={activeCert.imageUrl} 
+                  alt={activeCert.title} 
+                  style={{
+                    maxWidth: '100%',
+                    maxHeight: '55vh',
+                    objectFit: 'contain',
+                    display: 'block'
+                  }} 
+                />
               </div>
-
-              <h4 style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.85rem',
-                letterSpacing: '0.2em',
-                color: 'var(--color-text-muted)',
-                textTransform: 'uppercase',
-                marginBottom: '12px'
-              }}>
-                Certificate of Completion
-              </h4>
-
-              <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem', marginBottom: '8px' }}>
-                This is proudly presented to
-              </p>
-
-              <h2 style={{
-                fontSize: '2.25rem',
-                fontWeight: 900,
-                color: 'var(--color-text-main)',
-                marginBottom: '12px',
-                fontFamily: 'var(--font-headline)'
-              }}>
-                Christian Dave N. Juliales
-              </h2>
-
-              <p style={{
-                maxWidth: '550px',
-                color: 'var(--color-text-secondary)',
-                fontSize: '0.95rem',
-                lineHeight: '1.6',
-                marginBottom: '24px'
-              }}>
-                for successfully fulfilling all requirements and masteries for the credential course <strong>{activeCert.title}</strong>, issued by <strong>{activeCert.issuer}</strong> in <strong>{activeCert.dateIssued}</strong>.
-              </p>
-
+            ) : (
+              /* Fallback: Generated Layout Mockup */
               <div style={{
-                width: '100px',
-                height: '1px',
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                marginBottom: '24px'
-              }}></div>
-
-              {/* Credential ID and Status */}
-              <div style={{
+                border: '2px dashed rgba(255, 255, 255, 0.08)',
+                borderRadius: '16px',
+                padding: '40px 20px',
+                textAlign: 'center',
+                backgroundColor: 'rgba(15, 23, 42, 0.5)',
+                backgroundImage: 'radial-gradient(circle at center, rgba(168, 85, 247, 0.03) 0%, transparent 80%)',
+                position: 'relative',
                 display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'center',
-                gap: '24px',
-                fontSize: '0.85rem',
-                fontFamily: 'var(--font-mono)',
-                color: 'var(--color-text-muted)'
+                flexDirection: 'column',
+                alignItems: 'center'
               }}>
-                <div>
-                  <span>STATUS: </span>
-                  <span style={{ color: 'var(--color-tertiary)', fontWeight: 600 }}>VERIFIED ACTIVE</span>
+                {/* Badge Icon */}
+                <div style={{
+                  width: '72px',
+                  height: '72px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(168, 85, 247, 0.1)',
+                  border: '2px solid var(--color-primary)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginBottom: '24px',
+                  color: 'var(--color-primary)'
+                }}>
+                  <Award size={36} />
                 </div>
-                {activeCert._id && !activeCert._id.startsWith('seed') && (
+
+                <h4 style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.85rem',
+                  letterSpacing: '0.2em',
+                  color: 'var(--color-text-muted)',
+                  textTransform: 'uppercase',
+                  marginBottom: '12px'
+                }}>
+                  Certificate of Completion
+                </h4>
+
+                <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem', marginBottom: '8px' }}>
+                  This is proudly presented to
+                </p>
+
+                <h2 style={{
+                  fontSize: '2.25rem',
+                  fontWeight: 900,
+                  color: 'var(--color-text-main)',
+                  marginBottom: '12px',
+                  fontFamily: 'var(--font-headline)'
+                }}>
+                  Christian Dave N. Juliales
+                </h2>
+
+                <p style={{
+                  maxWidth: '550px',
+                  color: 'var(--color-text-secondary)',
+                  fontSize: '0.95rem',
+                  lineHeight: '1.6',
+                  marginBottom: '24px'
+                }}>
+                  for successfully fulfilling all requirements and masteries for the credential course <strong>{activeCert.title}</strong>, issued by <strong>{activeCert.issuer}</strong> in <strong>{activeCert.dateIssued}</strong>.
+                </p>
+
+                <div style={{
+                  width: '100px',
+                  height: '1px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  marginBottom: '24px'
+                }}></div>
+
+                {/* Credential ID and Status */}
+                <div style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  justifyContent: 'center',
+                  gap: '24px',
+                  fontSize: '0.85rem',
+                  fontFamily: 'var(--font-mono)',
+                  color: 'var(--color-text-muted)'
+                }}>
                   <div>
-                    <span>RECORD ID: </span>
-                    <span>{activeCert._id}</span>
+                    <span>STATUS: </span>
+                    <span style={{ color: 'var(--color-tertiary)', fontWeight: 600 }}>VERIFIED ACTIVE</span>
                   </div>
-                )}
+                  {activeCert._id && !activeCert._id.startsWith('seed') && (
+                    <div>
+                      <span>RECORD ID: </span>
+                      <span>{activeCert._id}</span>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Verification details bottom */}
             <div style={{

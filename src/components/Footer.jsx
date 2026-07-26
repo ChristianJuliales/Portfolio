@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import { Mail } from 'lucide-react';
 
 const Facebook = ({ size = 24 }) => (
@@ -25,32 +24,13 @@ const Linkedin = ({ size = 24 }) => (
 
 export default function Footer({ setActiveTab }) {
   const currentYear = new Date().getFullYear();
-  const [secretClicks, setSecretClicks] = useState(0);
-
-  useEffect(() => {
-    if (secretClicks > 0) {
-      const timer = setTimeout(() => setSecretClicks(0), 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [secretClicks]);
-
-  const handleSecretClick = () => {
-    setSecretClicks(prev => {
-      const next = prev + 1;
-      if (next >= 5) {
-        setActiveTab('admin-login');
-        return 0;
-      }
-      return next;
-    });
-  };
   
   return (
     <footer className="footer-wrapper">
       <div className="container footer-content">
         <div className="footer-copyright">
           <p style={{ fontWeight: 600, color: 'var(--color-text-main)', marginBottom: '4px' }}>CDNJ Portfolio</p>
-          <p onClick={handleSecretClick}>
+          <p>
             © {currentYear} Christian Dave N. Juliales. All Rights Reserved.
           </p>
         </div>

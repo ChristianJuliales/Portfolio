@@ -1,4 +1,3 @@
-import React from 'react';
 import { 
   Film, 
   Coffee, 
@@ -8,9 +7,7 @@ import {
   FileJson, 
   ArrowRight,
   Sparkles,
-  Layers,
-  Database,
-  Monitor
+  Layers
 } from 'lucide-react';
 
 export default function Home({ setActiveTab }) {

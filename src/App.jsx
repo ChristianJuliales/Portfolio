@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Certification from './pages/Certification';
 import Resume from './pages/Resume';
-import AdminLogin from './pages/AdminLogin';
-import AdminDashboard from './pages/AdminDashboard';
-import { AuthProvider } from './context/AuthContext';
 
 function AppContent() {
   const [activeTab, setActiveTab] = useState('home');
@@ -34,8 +31,6 @@ function AppContent() {
           {activeTab === 'projects' && <Projects />}
           {activeTab === 'certifications' && <Certification />}
           {activeTab === 'resume' && <Resume />}
-          {activeTab === 'admin-login' && <AdminLogin setActiveTab={setActiveTab} />}
-          {activeTab === 'admin' && <AdminDashboard setActiveTab={setActiveTab} />}
         </main>
       </div>
 
@@ -47,8 +42,6 @@ function AppContent() {
 
 export default function App() {
   return (
-    <AuthProvider>
-      <AppContent />
-    </AuthProvider>
+    <AppContent />
   );
 }

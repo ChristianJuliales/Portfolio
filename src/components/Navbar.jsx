@@ -1,11 +1,6 @@
-import React from 'react';
 import { Terminal, Mail } from 'lucide-react';
 
-import { useAuth } from '../context/AuthContext';
-
 export default function Navbar({ activeTab, setActiveTab }) {
-  const { isAdmin } = useAuth();
-  
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'projects', label: 'Projects' },
@@ -13,16 +8,12 @@ export default function Navbar({ activeTab, setActiveTab }) {
     { id: 'resume', label: 'Resume' },
   ];
 
-  if (isAdmin) {
-    navItems.push({ id: 'admin', label: 'Dashboard' });
-  }
-
   return (
     <header className="header-wrapper">
       <div className="container navbar-container">
         <div className="logo" onClick={() => setActiveTab('home')} style={{ cursor: 'pointer' }}>
           <Terminal size={24} className="text-primary" style={{ color: 'var(--color-primary)' }} />
-          <span>CDNJ Portfolio</span>
+          <span>Portfolio</span>
         </div>
         
         <nav>

@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import { 
   FileText, 
   GraduationCap, 
@@ -8,7 +7,6 @@ import {
   Calendar, 
   Download,
 } from 'lucide-react';
-import { api } from '../utils/api';
 
 const FacebookIcon = ({ size = 24 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -112,36 +110,11 @@ const seedResume = {
 };
 
 export default function Resume() {
-  const [resumeData, setResumeData] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    api.getResume()
-      .then((data) => {
-        if (data && (data.education.length > 0 || data.skillGroups.length > 0)) {
-          setResumeData(data);
-        } else {
-          setResumeData(seedResume);
-        }
-      })
-      .catch((err) => {
-        console.error('Failed to load resume database config, falling back to local files', err);
-        setResumeData(seedResume);
-      })
-      .finally(() => setLoading(false));
-  }, []);
+  const resumeData = seedResume;
 
   const handleDownload = () => {
     window.print();
   };
-
-  if (loading) {
-    return (
-      <div className="container flex-center" style={{ minHeight: '60vh' }}>
-        <p style={{ color: 'var(--color-text-muted)', fontFamily: 'var(--font-mono)' }}>Loading resume timeline...</p>
-      </div>
-    );
-  }
 
   return (
     <div className="container animate-fade-in" style={{ padding: '40px 24px' }}>

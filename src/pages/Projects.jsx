@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Search, ExternalLink, Code2, X, CheckCircle } from 'lucide-react';
-import { api } from '../utils/api';
+import { useState } from 'react';
+import { Search, ExternalLink, Code2, X } from 'lucide-react';
 
 const Github = ({ size = 24 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -12,59 +11,32 @@ const Github = ({ size = 24 }) => (
 const seedProjects = [
   {
     _id: 'seed-1',
-    title: 'Payroll System',
-    description: 'The Payroll System is a comprehensive enterprise solution developed in Visual Basic and powered by a secure local database. It is designed to handle complex salary structures, manage official employee records, compute net pays, and reduce human accounting errors significantly.',
-    technologies: ['Visual Basic', 'Database', 'Desktop', 'MS Access'],
-    imageUrl: '/Payroll.png',
-    liveLink: '',
+    title: 'MyTalipapa',
+    description: 'A comprehensive public market management system designed to streamline stall rentals, track vendor payments, and automate inventory updates for local market administrators.',
+    technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
+    imageUrl: '/mytalipapa.png',
+    liveLink: 'https://my-talipapa.vercel.app/',
     githubLink: ''
   },
   {
     _id: 'seed-2',
-    title: 'Scientific Calculator',
-    description: 'A mathematical desktop application that handles standard arithmetic and complex scientific evaluations (trigonometry, logarithms, exponents, parentheses parsing) with a highly responsive, modern interface.',
-    technologies: ['Java', 'Object Oriented', 'Desktop', 'UI Development'],
-    imageUrl: '/Calculator.png',
-    liveLink: '',
-    githubLink: ''
-  },
-  {
-    _id: 'seed-3',
-    title: 'Philippine Heritage (Lakbay-Wika)',
+title: 'Philippine Heritage (Lakbay-Wika)',
     description: 'An educational platform focused on Philippine cultural heritage and linguistic diversity. The project aims to bridge language barriers across regions through translation tools, audio-visual pronunciation guidelines, and interactive historical maps.',
     technologies: ['HTML/CSS', 'Web Platform', 'JavaScript', 'Responsive Web'],
     imageUrl: '/Lakbay-Wika.png',
     liveLink: '',
-    githubLink: ''
-  }
+    githubLink: ''  }
+
 ];
 
 export default function Projects() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [activeProject, setActiveProject] = useState(null);
-  const [projectsData, setProjectsData] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    api.getProjects()
-      .then((data) => {
-        if (data && data.length > 0) {
-          setProjectsData(data);
-        } else {
-          setProjectsData(seedProjects);
-        }
-      })
-      .catch((err) => {
-        console.error('Failed to load projects from DB, falling back to local files', err);
-        setProjectsData(seedProjects);
-      })
-      .finally(() => setLoading(false));
-  }, []);
+  const categories = ['All', 'Visual Basic', 'Java', 'HTML/CSS', 'React'];
 
-  const categories = ['All', 'Visual Basic', 'Java', 'HTML/CSS'];
-
-  const filteredProjects = projectsData.filter((project) => {
+  const filteredProjects = seedProjects.filter((project) => {
     // Check search matches
     const matchesSearch = 
       project.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -81,6 +53,8 @@ export default function Projects() {
       matchesCategory = project.technologies.some(t => t.toLowerCase() === 'java');
     } else if (selectedCategory === 'HTML/CSS') {
       matchesCategory = project.technologies.some(t => t.toLowerCase().includes('html') || t.toLowerCase().includes('css') || t.toLowerCase().includes('web'));
+    } else if (selectedCategory === 'React') {
+      matchesCategory = project.technologies.some(t => t.toLowerCase() === 'react');
     }
     
     return matchesSearch && matchesCategory;
@@ -170,11 +144,7 @@ export default function Projects() {
       </div>
 
       {/* Projects Grid */}
-      {loading ? (
-        <div style={{ textAlign: 'center', padding: '40px 0', color: 'var(--color-text-muted)', fontFamily: 'var(--font-mono)' }}>
-          Retrieving projects database...
-        </div>
-      ) : filteredProjects.length > 0 ? (
+      {filteredProjects.length > 0 ? (
         <div className="grid-responsive">
           {filteredProjects.map((project) => (
             <div 
