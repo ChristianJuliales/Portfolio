@@ -182,14 +182,6 @@ export default function Home({ setActiveTab }) {
             Bachelor of Science in Information Technology Student
           </p>
 
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px' }}>
-            <button className="btn btn-primary" onClick={() => setActiveTab('projects')}>
-              View My Projects
-            </button>
-            <button className="btn btn-secondary" onClick={() => setActiveTab('resume')}>
-              Download Resume
-            </button>
-          </div>
         </div>
       </section>
 
