@@ -40,7 +40,7 @@ export default function Footer({ setActiveTab }) {
             <Facebook size={18} />
             <span>Facebook</span>
           </a>
-          <a href="https://www.instagram.com/davejuliales/" target="_blank" rel="noopener noreferrer" className="social-link">
+          <a href="https://www.instagram.com/c.juliales/" target="_blank" rel="noopener noreferrer" className="social-link">
             <Instagram size={18} />
             <span>Instagram</span>
           </a>

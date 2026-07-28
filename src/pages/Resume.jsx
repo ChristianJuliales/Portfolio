@@ -108,7 +108,7 @@ const seedResume = {
     { name: 'Email', value: 'dave.juliales@gmail.com', url: 'https://mail.google.com/mail/?view=cm&fs=1&to=dave.juliales@gmail.com' },
     { name: 'LinkedIn', value: 'Christian Dave Juliales', url: 'https://www.linkedin.com/in/christian-dave-juliales-1b5b7a302/' },
     { name: 'Facebook', value: '@davejuliales.12', url: 'https://www.facebook.com/davejuliales.12' },
-    { name: 'Instagram', value: '@davejuliales', url: 'https://www.instagram.com/davejuliales/' }
+    { name: 'Instagram', value: '@c.juliales', url: 'https://www.instagram.com/c.juliales/' }
   ]
 };
 
