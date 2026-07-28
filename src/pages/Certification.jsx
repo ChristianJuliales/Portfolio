@@ -33,6 +33,14 @@ const seedCertifications = [
     dateIssued: '2026',
     imageUrl: '/UDE.png',
     certificateLink: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/91de8789869a637371867ad82d91dfa17eac2a46?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa'
+  },
+    {
+    _id: 'seed-cert-5',
+    title: 'Computer Systems Servicing - NCII',
+    issuer: 'TESDA',
+    dateIssued: '2026',
+    imageUrl: '/CSS-NCII.png',
+    certificateLink: ''
   }
 ];
 

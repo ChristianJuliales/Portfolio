@@ -115,94 +115,26 @@ export default function Home({ setActiveTab }) {
 
       {/* About Me Section */}
       <section className="container">
-        <div className="about-grid">
-          {/* Left Column: Styled Isometric SVG Graphic */}
-          <div style={{
-            position: 'relative',
-            borderRadius: '20px',
-            overflow: 'hidden',
-            border: '1px solid var(--color-border)',
-            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(9, 13, 22, 0.9))',
-            boxShadow: 'inset 0 0 40px rgba(0, 0, 0, 0.5)',
-            padding: '24px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            minHeight: '340px'
-          }}>
-            <svg viewBox="0 0 200 200" width="100%" height="240px" style={{ filter: 'drop-shadow(0 0 15px rgba(168, 85, 247, 0.25))' }}>
-              <defs>
-                <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#a855f7" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#6366f1" stopOpacity="0.2" />
-                </linearGradient>
-                <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#0ea5e9" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#10b981" stopOpacity="0.2" />
-                </linearGradient>
-              </defs>
-              {/* Isometric grid representation */}
-              <g transform="translate(100, 100) scale(1, 0.577) rotate(45)">
-                {/* Back layers */}
-                <rect x="-60" y="-60" width="120" height="120" fill="url(#purpleGrad)" rx="8" stroke="rgba(168, 85, 247, 0.4)" strokeWidth="1" />
-                
-                {/* Circuit lines */}
-                <path d="M -40 -40 L 40 40 M -40 40 L 40 -40" stroke="rgba(14, 165, 233, 0.4)" strokeWidth="1.5" strokeDasharray="4 3" />
-                
-                {/* Floating cubes / servers */}
-                <g transform="translate(0, 0)">
-                  <rect x="-25" y="-25" width="50" height="50" fill="rgba(15, 23, 42, 0.9)" stroke="#a855f7" strokeWidth="2" rx="4" />
-                  <circle cx="0" cy="0" r="8" fill="#10b981" />
-                </g>
-                <g transform="translate(-40, -40)">
-                  <rect x="-10" y="-10" width="20" height="20" fill="rgba(15, 23, 42, 0.9)" stroke="#0ea5e9" strokeWidth="1.5" rx="2" />
-                </g>
-                <g transform="translate(40, 40)">
-                  <rect x="-10" y="-10" width="20" height="20" fill="rgba(15, 23, 42, 0.9)" stroke="#0ea5e9" strokeWidth="1.5" rx="2" />
-                </g>
-              </g>
-            </svg>
-            <div style={{
-              position: 'absolute',
-              bottom: '16px',
-              left: '16px',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.8rem',
-              color: 'var(--color-tertiary)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px'
-            }}>
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--color-tertiary)', display: 'inline-block' }}></span>
-              #code_up_
-            </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <div>
+            <h2 className="section-title" style={{ fontSize: '2rem' }}>
+              About Me
+            </h2>
+            <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', lineHeight: '1.7', marginTop: '16px' }}>
+              Hello! I am Christian Dave Juliales, I am currently taking Bachelor of Science in Information Technology at Quezon City University, and here is my E-Portfolio.
+            </p>
           </div>
 
-          {/* Right Column: Bio + Quotes */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <div>
-              <h2 className="section-title" style={{ fontSize: '2rem' }}>
-                <span style={{ color: 'var(--color-primary)', marginRight: '8px' }}>—</span>
-                About Me
-              </h2>
-              <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', lineHeight: '1.7', marginTop: '16px' }}>
-                Hello! I am Christian Dave Juliales, I am currently taking Bachelor of Science in Information Technology at Quezon City University, and here is my E-Portfolio.
-              </p>
-            </div>
-
-            <div style={{
-              background: 'rgba(30, 41, 59, 0.4)',
-              borderLeft: '4px solid var(--color-primary)',
-              borderRadius: '0 12px 12px 0',
-              padding: '20px 24px',
-              fontStyle: 'italic',
-              color: 'var(--color-text-secondary)',
-              fontSize: '1.05rem',
-              lineHeight: '1.6'
-            }}>
-              "Passionate about building scalable digital solutions and mastering the art of software architecture."
-            </div>
+          <div style={{
+            background: 'rgba(30, 41, 59, 0.4)',
+            borderRadius: '0 12px 12px 0',
+            padding: '20px 24px',
+            fontStyle: 'italic',
+            color: 'var(--color-text-secondary)',
+            fontSize: '1.05rem',
+            lineHeight: '1.6'
+          }}>
+            "Passionate about building scalable digital solutions and mastering the art of software architecture."
           </div>
         </div>
       </section>
