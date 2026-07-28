@@ -84,7 +84,6 @@ export default function Certification() {
 
               <div style={{ padding: '8px 0' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                  <span className="badge badge-primary">Credential</span>
                   <span style={{ 
                     display: 'flex', 
                     alignItems: 'center', 

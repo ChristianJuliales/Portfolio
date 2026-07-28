@@ -6,8 +6,41 @@ import {
   FileJson, 
   ArrowRight,
   Sparkles,
-  Layers
+  Layers,
+  Mail,
+  MapPin,
+  ExternalLink,
+  MessageSquare
 } from 'lucide-react';
+
+const FacebookIcon = ({ size = 22 }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
+
+const InstagramIcon = ({ size = 22 }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+);
+
+const LinkedinIcon = ({ size = 22 }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect x="2" y="9" width="4" height="12" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
+const GithubIcon = ({ size = 22 }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+    <path d="M9 18c-4.51 2-5-2-7-2"/>
+  </svg>
+);
 
 export default function Home({ setActiveTab }) {
   const techStack = [
@@ -25,6 +58,57 @@ export default function Home({ setActiveTab }) {
       platform: 'Web Platform',
       desc: 'An immersive language translation and web experience showcasing cultural landmarks and local dialects.',
       img: '/Lakbay-Wika.png',
+    }
+  ];
+
+  const contactDetails = [
+    {
+      platform: 'Email',
+      value: 'dave.juliales@gmail.com',
+      subtitle: 'Send a direct message',
+      url: 'https://mail.google.com/mail/?view=cm&fs=1&to=dave.juliales@gmail.com',
+      icon: Mail,
+      color: '#ea4335'
+    },
+    {
+      platform: 'LinkedIn',
+      value: 'Christian Dave Juliales',
+      subtitle: 'Connect professionally',
+      url: 'https://www.linkedin.com/in/christian-dave-juliales-1b5b7a302/',
+      icon: LinkedinIcon,
+      color: '#0a66c2'
+    },
+    {
+      platform: 'GitHub',
+      value: 'christianjuliales',
+      subtitle: 'View code & projects',
+      url: 'https://github.com/christianjuliales',
+      icon: GithubIcon,
+      color: '#a855f7'
+    },
+    {
+      platform: 'Facebook',
+      value: 'Christian Dave Juliales',
+      subtitle: '@davejuliales.12',
+      url: 'https://www.facebook.com/davejuliales.12',
+      icon: FacebookIcon,
+      color: '#1877f2'
+    },
+    {
+      platform: 'Instagram',
+      value: '@c.juliales',
+      subtitle: 'Follow my updates',
+      url: 'https://www.instagram.com/c.juliales/',
+      icon: InstagramIcon,
+      color: '#e4405f'
+    },
+    {
+      platform: 'Location & Info',
+      value: 'Quezon City, Philippines',
+      subtitle: '+63 9763198643',
+      url: null,
+      icon: MapPin,
+      color: '#10b981'
     }
   ];
 
@@ -123,26 +207,24 @@ export default function Home({ setActiveTab }) {
 
           <div style={{
             background: 'rgba(30, 41, 59, 0.4)',
-            borderRadius: '0 12px 12px 0',
             padding: '20px 24px',
             fontStyle: 'italic',
             color: 'var(--color-text-secondary)',
             fontSize: '1.05rem',
             lineHeight: '1.6'
           }}>
-            "Passionate about building scalable digital solutions and mastering the art of software architecture."
+          Solution-driven Full-Stack Developer and aspiring Data Scientist with experience designing and developing enterprise web systems. Skilled in front-end and back-end development, project management, and team leadership. Certified in Computer Systems Servicing NC II, combining software development expertise with strong technical support and hardware troubleshooting skills to deliver scalable, data-driven solutions.
           </div>
         </div>
       </section>
 
       {/* Technical Stack */}
       <section className="container">
-        <div style={{ textAlign: 'center' }}>
-          <h2 className="section-title" style={{ justifyContent: 'center' }}>
-            <Layers size={28} style={{ color: 'var(--color-primary)' }} />
+        <div>
+          <h2 className="section-title" >
             Technical Stack
           </h2>
-          <p className="section-subtitle" style={{ margin: '0 auto 48px auto' }}>
+          <p className="section-subtitle" >
             Tools and technologies I use to bring ideas to life.
           </p>
         </div>
@@ -204,7 +286,6 @@ export default function Home({ setActiveTab }) {
         }}>
           <div>
             <h2 className="section-title">
-              <Sparkles size={28} style={{ color: 'var(--color-secondary)' }} />
               Featured Work
             </h2>
             <p className="section-subtitle" style={{ marginBottom: 0 }}>
@@ -283,44 +364,85 @@ export default function Home({ setActiveTab }) {
         </div>
       </section>
 
-      {/* CTA section */}
-      <section className="container">
-        <div style={{
-          background: 'linear-gradient(135deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.6))',
-          borderRadius: '24px',
-          border: '1px solid var(--color-border)',
-          padding: '60px 40px',
-          textAlign: 'center',
-          position: 'relative',
-          overflow: 'hidden',
-          boxShadow: 'var(--glow-shadow)'
-        }}>
-          {/* Subtle light leak backgrounds */}
-          <div style={{
-            position: 'absolute',
-            top: '-50%',
-            left: '-20%',
-            width: '80%',
-            height: '200%',
-            background: 'radial-gradient(circle, rgba(168, 85, 247, 0.06) 0%, transparent 60%)',
-            pointerEvents: 'none'
-          }}></div>
-          
-          <h2 style={{ fontSize: '2.25rem', fontWeight: 800, marginBottom: '16px' }}>
-            Interested in working together?
+      {/* Contact Details Section */}
+      <section id="contact-section" className="container" style={{ scrollMarginTop: '100px' }}>
+        <div style={{marginBottom: '40px' }}>
+          <h2 className="section-title">
+            Contact Me
           </h2>
-          <p style={{
-            color: 'var(--color-text-secondary)',
-            fontSize: '1.1rem',
-            maxWidth: '600px',
-            margin: '0 auto 32px auto',
-            lineHeight: '1.6'
-          }}>
-            I'm currently looking for new opportunities and collaborations. Whether you have a project in mind or just want to say hi, feel free to reach out.
+          <p className="section-subtitle" >
+            Feel free to reach out through any of these platforms for inquiries, collaborations, or connections.
           </p>
-          <a href="mailto:dave.juliales@gmail.com" className="btn btn-primary">
-            Get in Touch
-          </a>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '20px'
+        }}>
+          {contactDetails.map((item) => {
+            const IconComponent = item.icon;
+            const CardContent = (
+              <div 
+                className="card-glass"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '16px',
+                  padding: '20px 24px',
+                  height: '100%',
+                  transition: 'var(--transition-smooth)',
+                  color: 'inherit',
+                  textDecoration: 'none'
+                }}
+              >
+                <div style={{
+                  width: '48px',
+                  height: '48px',
+                  borderRadius: '12px',
+                  background: `${item.color}18`,
+                  border: `1px solid ${item.color}35`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: item.color,
+                  flexShrink: 0
+                }}>
+                  <IconComponent size={22} />
+                </div>
+                <div style={{ flexGrow: 1, minWidth: 0 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                      {item.platform}
+                    </span>
+                    {item.url && <ExternalLink size={12} style={{ color: 'var(--color-text-muted)', opacity: 0.7 }} />}
+                  </div>
+                  <h3 style={{ fontSize: '1rem', fontWeight: 700, marginTop: '2px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    {item.value}
+                  </h3>
+                  <p style={{ fontSize: '0.825rem', color: 'var(--color-text-secondary)', marginTop: '2px' }}>
+                    {item.subtitle}
+                  </p>
+                </div>
+              </div>
+            );
+
+            if (item.url) {
+              return (
+                <a
+                  key={item.platform}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: 'none' }}
+                >
+                  {CardContent}
+                </a>
+              );
+            }
+
+            return <div key={item.platform}>{CardContent}</div>;
+          })}
         </div>
       </section>
     </div>

@@ -48,7 +48,7 @@ export default function Footer({ setActiveTab }) {
             <Linkedin size={18} />
             <span>LinkedIn</span>
           </a>
-          <a href="mailto:dave.juliales@gmail.com" className="social-link">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dave.juliales@gmail.com" target="_blank" rel="noopener noreferrer" className="social-link">
             <Mail size={18} />
             <span>Email</span>
           </a>

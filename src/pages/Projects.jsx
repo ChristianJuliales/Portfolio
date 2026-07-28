@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, ExternalLink, Code2, X } from 'lucide-react';
+import { ExternalLink, Code2, X } from 'lucide-react';
 
 const Github = ({ size = 24 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -20,7 +20,7 @@ const seedProjects = [
   },
   {
     _id: 'seed-2',
-title: 'Philippine Heritage (Lakbay-Wika)',
+    title: 'Philippine Heritage (Lakbay-Wika)',
     description: 'An educational platform focused on Philippine cultural heritage and linguistic diversity. The project aims to bridge language barriers across regions through translation tools, audio-visual pronunciation guidelines, and interactive historical maps.',
     technologies: ['HTML/CSS', 'Web Platform', 'JavaScript', 'Responsive Web'],
     imageUrl: '/Lakbay-Wika.png',
@@ -30,35 +30,7 @@ title: 'Philippine Heritage (Lakbay-Wika)',
 ];
 
 export default function Projects() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
   const [activeProject, setActiveProject] = useState(null);
-
-  const categories = ['All', 'Visual Basic', 'Java', 'HTML/CSS', 'React'];
-
-  const filteredProjects = seedProjects.filter((project) => {
-    // Check search matches
-    const matchesSearch = 
-      project.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-      project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.technologies.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
-    
-    // Check category filter matches
-    let matchesCategory = false;
-    if (selectedCategory === 'All') {
-      matchesCategory = true;
-    } else if (selectedCategory === 'Visual Basic') {
-      matchesCategory = project.technologies.some(t => t.toLowerCase().includes('visual basic') || t.toLowerCase() === 'vb');
-    } else if (selectedCategory === 'Java') {
-      matchesCategory = project.technologies.some(t => t.toLowerCase() === 'java');
-    } else if (selectedCategory === 'HTML/CSS') {
-      matchesCategory = project.technologies.some(t => t.toLowerCase().includes('html') || t.toLowerCase().includes('css') || t.toLowerCase().includes('web'));
-    } else if (selectedCategory === 'React') {
-      matchesCategory = project.technologies.some(t => t.toLowerCase() === 'react');
-    }
-    
-    return matchesSearch && matchesCategory;
-  });
 
   return (
     <div className="container animate-fade-in" style={{ padding: '40px 24px' }}>
@@ -71,81 +43,10 @@ export default function Projects() {
         </p>
       </header>
 
-      {/* Search and Filters */}
-      <div style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '20px',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginBottom: '40px',
-        background: 'rgba(30, 41, 59, 0.25)',
-        border: '1px solid var(--color-border)',
-        borderRadius: '16px',
-        padding: '16px 24px'
-      }}>
-        {/* Search Input */}
-        <div style={{
-          position: 'relative',
-          display: 'flex',
-          alignItems: 'center',
-          flex: '1 1 300px'
-        }}>
-          <Search size={18} style={{
-            position: 'absolute',
-            left: '16px',
-            color: 'var(--color-text-muted)'
-          }} />
-          <input 
-            type="text" 
-            placeholder="Search by title, technology..." 
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            style={{
-              width: '100%',
-              backgroundColor: 'var(--color-surface)',
-              border: '1px solid var(--color-border)',
-              borderRadius: '9999px',
-              padding: '12px 16px 12px 48px',
-              fontSize: '0.95rem',
-              color: 'var(--color-text-main)',
-              transition: 'var(--transition-fast)'
-            }}
-          />
-        </div>
-
-        {/* Category Filters */}
-        <div style={{
-          display: 'flex',
-          gap: '10px',
-          flexWrap: 'wrap'
-        }}>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              style={{
-                padding: '8px 18px',
-                borderRadius: '9999px',
-                fontSize: '0.9rem',
-                fontWeight: 600,
-                cursor: 'pointer',
-                transition: 'var(--transition-smooth)',
-                backgroundColor: selectedCategory === cat ? 'var(--color-primary)' : 'var(--color-surface)',
-                color: selectedCategory === cat ? 'white' : 'var(--color-text-muted)',
-                border: selectedCategory === cat ? 'none' : '1px solid var(--color-border)'
-              }}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </div>
-
       {/* Projects Grid */}
-      {filteredProjects.length > 0 ? (
+      {seedProjects.length > 0 ? (
         <div className="grid-responsive">
-          {filteredProjects.map((project) => (
+          {seedProjects.map((project) => (
             <div 
               key={project._id} 
               className="card-glass"

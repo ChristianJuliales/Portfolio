@@ -8,6 +8,23 @@ export default function Navbar({ activeTab, setActiveTab }) {
     { id: 'resume', label: 'Resume' },
   ];
 
+  const handleContactClick = () => {
+    if (activeTab !== 'home') {
+      setActiveTab('home');
+      setTimeout(() => {
+        const elem = document.getElementById('contact-section');
+        if (elem) {
+          elem.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 150);
+    } else {
+      const elem = document.getElementById('contact-section');
+      if (elem) {
+        elem.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <header className="header-wrapper">
       <div className="container navbar-container">
@@ -31,10 +48,10 @@ export default function Navbar({ activeTab, setActiveTab }) {
               <button 
                 className="btn btn-outline" 
                 style={{ padding: '8px 18px', fontSize: '0.85rem' }}
-                onClick={() => setActiveTab('resume')}
+                onClick={handleContactClick}
               >
                 <Mail size={14} />
-                Hire Me
+                Contact Me
               </button>
             </li>
           </ul>

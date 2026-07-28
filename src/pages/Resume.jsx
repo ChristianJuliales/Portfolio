@@ -85,16 +85,27 @@ const seedResume = {
     {
       title: 'Programming & Logic',
       skills: [
-        { name: 'Java', level: 'Intermediate' },
-        { name: 'Visual Basic', level: 'Intermediate' },
-        { name: 'JavaScript', level: 'Basic' },
-        { name: 'HTML5', level: 'Advanced' },
-        { name: 'CSS3', level: 'Advanced' }
+        { name: 'Java' },
+        { name: 'Visual Basic' },
+        { name: 'JavaScript' },
+        { name: 'HTML5' },
+        { name: 'React' },
+        { name: 'CSS3' }
       ]
     },
+    {
+      title: 'Computer Systems Servicing (NC II)',
+      skills: [
+        { name: 'Computer Hardware' },
+        { name: 'Software Installation' },
+        { name: 'Troubleshooting' },
+        { name: 'Networking' },
+        { name: 'Technical Support' }
+      ]
+    }
   ],
   contacts: [
-    { name: 'Email', value: 'dave.juliales@gmail.com', url: 'mailto:dave.juliales@gmail.com' },
+    { name: 'Email', value: 'dave.juliales@gmail.com', url: 'https://mail.google.com/mail/?view=cm&fs=1&to=dave.juliales@gmail.com' },
     { name: 'LinkedIn', value: 'Christian Dave Juliales', url: 'https://www.linkedin.com/in/christian-dave-juliales-1b5b7a302/' },
     { name: 'Facebook', value: '@davejuliales.12', url: 'https://www.facebook.com/davejuliales.12' },
     { name: 'Instagram', value: '@davejuliales', url: 'https://www.instagram.com/davejuliales/' }
@@ -104,9 +115,6 @@ const seedResume = {
 export default function Resume() {
   const resumeData = seedResume;
 
-  const handleDownload = () => {
-    window.print();
-  };
 
   return (
     <div className="container animate-fade-in" style={{ padding: '40px 24px' }}>
@@ -123,16 +131,12 @@ export default function Resume() {
       }}>
         <div>
           <h1 className="section-title" style={{ margin: 0 }}>
-            Curriculum Vitae
+            RESUME
           </h1>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', marginTop: '6px' }}>
             Professional education pathway, developer skillset, and direct contact directories.
           </p>
         </div>
-        <button className="btn btn-primary" onClick={handleDownload}>
-          <Download size={18} />
-          Print / PDF Resume
-        </button>
       </div>
 
       <div className="resume-grid">
@@ -146,7 +150,6 @@ export default function Resume() {
             alignItems: 'center',
             gap: '12px'
           }}>
-            <GraduationCap size={24} style={{ color: 'var(--color-secondary)' }} />
             Education
           </h2>
 
@@ -215,8 +218,7 @@ export default function Resume() {
               alignItems: 'center',
               gap: '10px'
             }}>
-              <Code2 size={20} style={{ color: 'var(--color-tertiary)' }} />
-              Developer Skills
+              Skills & Expertise
             </h2>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -248,13 +250,6 @@ export default function Resume() {
                         }}
                       >
                         <span style={{ fontWeight: 600, color: 'var(--color-text-main)' }}>{skill.name}</span>
-                        <span style={{ 
-                          fontSize: '0.75rem', 
-                          color: skill.level === 'Advanced' ? 'var(--color-tertiary)' : 'var(--color-text-muted)',
-                          fontFamily: 'var(--font-mono)'
-                        }}>
-                          ({skill.level})
-                        </span>
                       </div>
                     ))}
                   </div>
@@ -273,7 +268,6 @@ export default function Resume() {
               alignItems: 'center',
               gap: '10px'
             }}>
-              <MapPin size={20} style={{ color: 'var(--color-primary)' }} />
               Contact Directory
             </h2>
 
