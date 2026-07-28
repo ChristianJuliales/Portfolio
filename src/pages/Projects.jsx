@@ -24,7 +24,7 @@ title: 'Philippine Heritage (Lakbay-Wika)',
     description: 'An educational platform focused on Philippine cultural heritage and linguistic diversity. The project aims to bridge language barriers across regions through translation tools, audio-visual pronunciation guidelines, and interactive historical maps.',
     technologies: ['HTML/CSS', 'Web Platform', 'JavaScript', 'Responsive Web'],
     imageUrl: '/Lakbay-Wika.png',
-    liveLink: '',
+    liveLink: 'https://christianjuliales.github.io/Lakbay-Wika/',
     githubLink: ''  }
 
 ];
