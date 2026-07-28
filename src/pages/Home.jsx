@@ -65,7 +65,7 @@ export default function Home({ setActiveTab }) {
             boxShadow: '0 0 30px rgba(168, 85, 247, 0.3)'
           }}>
             <img 
-              src="/debs.jpg" 
+              src="/Christian Dave Juliales.jpg" 
               alt="Christian Dave N. Juliales" 
               style={{
                 width: '100%',
@@ -83,11 +83,7 @@ export default function Home({ setActiveTab }) {
             marginBottom: '16px',
             letterSpacing: '-0.03em'
           }}>
-            Christian Dave N. <span style={{
-              background: 'linear-gradient(135deg, var(--color-primary), #d8b4fe)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
-            }}>Juliales</span>
+            Christian Dave N. Juliales
           </h1>
 
           <p style={{

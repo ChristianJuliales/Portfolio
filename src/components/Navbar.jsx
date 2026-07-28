@@ -1,4 +1,4 @@
-import { Terminal, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab }) {
   const navItems = [
@@ -12,8 +12,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
     <header className="header-wrapper">
       <div className="container navbar-container">
         <div className="logo" onClick={() => setActiveTab('home')} style={{ cursor: 'pointer' }}>
-          <Terminal size={24} className="text-primary" style={{ color: 'var(--color-primary)' }} />
-          <span>Portfolio</span>
+          <span>PORTFOLIO</span>
         </div>
         
         <nav>

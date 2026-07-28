@@ -64,7 +64,6 @@ export default function Projects() {
     <div className="container animate-fade-in" style={{ padding: '40px 24px' }}>
       <header style={{ marginBottom: '48px' }}>
         <h1 className="section-title">
-          <Code2 size={32} style={{ color: 'var(--color-primary)' }} />
           Projects Showcase
         </h1>
         <p className="section-subtitle">

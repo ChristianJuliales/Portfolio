@@ -51,7 +51,6 @@ export default function Certification() {
     <div className="container animate-fade-in" style={{ padding: '40px 24px' }}>
       <header style={{ marginBottom: '48px' }}>
         <h1 className="section-title">
-          <Award size={32} style={{ color: 'var(--color-primary)' }} />
           Certifications & Awards
         </h1>
         <p className="section-subtitle">

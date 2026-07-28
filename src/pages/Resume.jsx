@@ -123,7 +123,6 @@ export default function Resume() {
       }}>
         <div>
           <h1 className="section-title" style={{ margin: 0 }}>
-            <FileText size={32} style={{ color: 'var(--color-primary)' }} />
             Curriculum Vitae
           </h1>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', marginTop: '6px' }}>
