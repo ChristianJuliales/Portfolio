@@ -25,7 +25,19 @@ const seedProjects = [
     technologies: ['HTML/CSS', 'Web Platform', 'JavaScript', 'Responsive Web'],
     imageUrl: '/Lakbay-Wika.png',
     liveLink: 'https://christianjuliales.github.io/Lakbay-Wika/',
-    githubLink: ''  }
+    githubLink: ''  
+  },
+
+  {
+      _id: 'seed-3',
+      title: 'PrintSync',
+      description: 'A printing shop management system that streamlines order processing, tracks job statuses, and manages customer information. The platform features an intuitive admin dashboard for order management, real-time status updates, and secure user authentication to optimize printing shop operations.',
+      technologies: [ 'React.js', 'Node.js', 'MongoDB', 'Express.js'],
+      imageUrl: '/PS.png',
+      liveLink: 'https://cacheprints-jos-frontend.vercel.app/',
+      githubLink: ''  
+  }
+  
 
 ];
 
@@ -99,8 +111,8 @@ export default function Projects() {
                     width: '100%'
                   }}
                 >
-                  View Case Study
-                  <ExternalLink size={16} />
+                  View More
+                  
                 </button>
               </div>
             </div>

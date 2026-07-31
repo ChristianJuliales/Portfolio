@@ -10,7 +10,9 @@ import {
   Mail,
   MapPin,
   ExternalLink,
-  MessageSquare
+  MessageSquare,
+  Server as ServerIcon,
+  Database as DatabaseIcon
 } from 'lucide-react';
 
 const FacebookIcon = ({ size = 22 }) => (
@@ -49,15 +51,18 @@ export default function Home({ setActiveTab }) {
     { name: 'HTML', desc: 'Web Core', icon: Layout, color: 'var(--color-primary)' },
     { name: 'CSS', desc: 'Styling', icon: Palette, color: 'var(--color-secondary)' },
     { name: 'JavaScript', desc: 'Scripting', icon: FileJson, color: 'var(--color-tertiary)' },
+    { name: 'React.js', desc: 'UI Framework', icon: Layers, color: 'var(--color-primary)' },
+    { name: 'Node.js', desc: 'Backend Runtime', icon: ServerIcon, color: 'var(--color-secondary)' },
+    { name: 'MongoDB', desc: 'Database', icon: DatabaseIcon, color: 'var(--color-tertiary)' },
   ];
 
   const featuredProjects = [
     {
-      title: 'Philippine Heritage (Lakbay-Wika)',
-      category: 'HTML/CSS',
+      title: 'PrintSync',
+      category: 'Full-Stack Development',
       platform: 'Web Platform',
-      desc: 'An immersive language translation and web experience showcasing cultural landmarks and local dialects.',
-      img: '/Lakbay-Wika.png',
+      desc: 'PrintSync is a comprehensive printing shop management system that streamlines order processing, tracks job statuses, and manages customer information. The platform features an intuitive admin dashboard for order management, real-time status updates, and secure user authentication to optimize printing shop operations.',
+      img: '/PS.png',
     }
   ];
 
