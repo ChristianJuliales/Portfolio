@@ -22,14 +22,13 @@ const Linkedin = ({ size = 24 }) => (
   </svg>
 );
 
-export default function Footer({ setActiveTab }) {
+export default function Footer({ }) {
   const currentYear = new Date().getFullYear();
   
   return (
     <footer className="footer-wrapper">
       <div className="container footer-content">
         <div className="footer-copyright">
-          <p style={{ fontWeight: 600, color: 'var(--color-text-main)', marginBottom: '4px' }}>CDNJ Portfolio</p>
           <p>
             © {currentYear} Christian Dave N. Juliales. All Rights Reserved.
           </p>

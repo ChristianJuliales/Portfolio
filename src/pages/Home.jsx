@@ -118,17 +118,17 @@ export default function Home({ setActiveTab }) {
   ];
 
   return (
-    <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '80px' }}>
+    <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(48px, 8vw, 80px)' }}>
       {/* Hero Section */}
       <section style={{
         position: 'relative',
-        padding: '80px 0 100px 0',
+        padding: 'clamp(40px, 8vw, 80px) 0 clamp(60px, 10vw, 100px) 0',
         background: 'radial-gradient(circle at center, rgba(168, 85, 247, 0.08) 0%, transparent 70%)',
         textAlign: 'center',
         borderBottom: '1px solid var(--color-border)'
       }}>
         {/* Banner container */}
-        <div style={{
+        <div className="hero-banner" style={{
           position: 'absolute',
           top: 0,
           left: 0,
@@ -141,13 +141,13 @@ export default function Home({ setActiveTab }) {
           zIndex: -1
         }}></div>
 
-        <div className="container" style={{ position: 'relative', zIndex: 1, marginTop: '80px' }}>
+        <div className="container" style={{ position: 'relative', zIndex: 1, marginTop: 'clamp(40px, 8vw, 80px)' }}>
           {/* Circular avatar with glowing pulse frame */}
           <div style={{
             position: 'relative',
-            width: '180px',
-            height: '180px',
-            margin: '0 auto 32px auto',
+            width: 'clamp(120px, 25vw, 180px)',
+            height: 'clamp(120px, 25vw, 180px)',
+            margin: '0 auto 28px auto',
             borderRadius: '50%',
             padding: '4px',
             background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
@@ -167,7 +167,7 @@ export default function Home({ setActiveTab }) {
           </div>
 
           <h1 style={{
-            fontSize: '3.5rem',
+            fontSize: 'clamp(1.75rem, 5vw, 3.5rem)',
             fontWeight: 900,
             marginBottom: '16px',
             letterSpacing: '-0.03em'
@@ -176,13 +176,14 @@ export default function Home({ setActiveTab }) {
           </h1>
 
           <p style={{
-            fontSize: '1.25rem',
+            fontSize: 'clamp(0.75rem, 2vw, 1.25rem)',
             color: 'var(--color-secondary)',
             fontWeight: 600,
             fontFamily: 'var(--font-mono)',
             textTransform: 'uppercase',
-            letterSpacing: '0.1em',
-            marginBottom: '40px'
+            letterSpacing: '0.08em',
+            marginBottom: '40px',
+            padding: '0 16px'
           }}>
             Bachelor of Science in Information Technology Student
           </p>
@@ -228,8 +229,8 @@ export default function Home({ setActiveTab }) {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-          gap: '20px'
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(160px, 45%), 1fr))',
+          gap: 'clamp(12px, 2vw, 20px)'
         }}>
           {techStack.map((tech) => {
             const Icon = tech.icon;
@@ -248,7 +249,7 @@ export default function Home({ setActiveTab }) {
                 <div style={{
                   width: '48px',
                   height: '48px',
-                  borderRadius: '12px',
+                  borderRadius: '4px',
                   background: 'rgba(30, 41, 59, 0.6)',
                   display: 'flex',
                   alignItems: 'center',
@@ -277,11 +278,13 @@ export default function Home({ setActiveTab }) {
       <section className="container">
         <div style={{
           display: 'flex',
+          flexWrap: 'wrap',
           justifyContent: 'space-between',
           alignItems: 'flex-end',
+          gap: '16px',
           marginBottom: '40px'
         }}>
-          <div>
+          <div style={{ flex: '1 1 260px' }}>
             <h2 className="section-title">
               Featured Work
             </h2>
@@ -318,7 +321,7 @@ export default function Home({ setActiveTab }) {
                 overflow: 'hidden'
               }}
             >
-              <div style={{ height: '200px', width: '100%', overflow: 'hidden', borderBottom: '1px solid var(--color-border)', position: 'relative' }}>
+              <div className="project-img-wrap" style={{ height: '200px', width: '100%', overflow: 'hidden', borderBottom: '1px solid var(--color-border)', position: 'relative' }}>
                 <img 
                   src={project.img} 
                   alt={project.title} 
@@ -396,7 +399,7 @@ export default function Home({ setActiveTab }) {
                 <div style={{
                   width: '48px',
                   height: '48px',
-                  borderRadius: '12px',
+                  borderRadius: '4px',
                   background: `${item.color}18`,
                   border: `1px solid ${item.color}35`,
                   display: 'flex',

@@ -117,15 +117,15 @@ export default function Resume() {
 
 
   return (
-    <div className="container animate-fade-in" style={{ padding: '40px 24px' }}>
+    <div className="container animate-fade-in" style={{ padding: 'clamp(24px, 4vw, 40px) clamp(16px, 3vw, 24px)' }}>
       {/* Resume Header */}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         flexWrap: 'wrap',
-        gap: '24px',
-        marginBottom: '48px',
+        gap: '20px',
+        marginBottom: 'clamp(32px, 5vw, 48px)',
         paddingBottom: '24px',
         borderBottom: '1px solid var(--color-border)'
       }}>
@@ -133,7 +133,7 @@ export default function Resume() {
           <h1 className="section-title" style={{ margin: 0 }}>
             RESUME
           </h1>
-          <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', marginTop: '6px' }}>
+          <p style={{ color: 'var(--color-text-muted)', fontSize: 'clamp(0.875rem, 2vw, 1rem)', marginTop: '6px', maxWidth: '480px' }}>
             Professional education pathway, developer skillset, and direct contact directories.
           </p>
         </div>
@@ -143,7 +143,7 @@ export default function Resume() {
         {/* Left Column: Education Timeline */}
         <div>
           <h2 style={{
-            fontSize: '1.5rem',
+            fontSize: 'clamp(1.2rem, 3vw, 1.5rem)',
             fontWeight: 800,
             marginBottom: '28px',
             display: 'flex',
@@ -243,7 +243,7 @@ export default function Resume() {
                           alignItems: 'center',
                           gap: '8px',
                           padding: '6px 12px',
-                          borderRadius: '8px',
+                          borderRadius: '6px',
                           backgroundColor: 'rgba(30, 41, 59, 0.4)',
                           border: '1px solid var(--color-border)',
                           fontSize: '0.9rem'
@@ -286,7 +286,7 @@ export default function Resume() {
                       alignItems: 'center',
                       gap: '14px',
                       padding: '12px 16px',
-                      borderRadius: '12px',
+                      borderRadius: '6px',
                       backgroundColor: 'rgba(30, 41, 59, 0.25)',
                       border: '1px solid var(--color-border)',
                       transition: 'var(--transition-smooth)'
@@ -296,7 +296,7 @@ export default function Resume() {
                     <div style={{
                       width: '36px',
                       height: '36px',
-                      borderRadius: '8px',
+                      borderRadius: '4px',
                       backgroundColor: 'rgba(15, 23, 42, 0.5)',
                       display: 'flex',
                       alignItems: 'center',

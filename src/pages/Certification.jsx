@@ -48,7 +48,7 @@ export default function Certification() {
   const [activeCert, setActiveCert] = useState(null);
 
   return (
-    <div className="container animate-fade-in" style={{ padding: '40px 24px' }}>
+    <div className="container animate-fade-in" style={{ padding: 'clamp(24px, 4vw, 40px) clamp(16px, 3vw, 24px)' }}>
       <header style={{ marginBottom: '48px' }}>
         <h1 className="section-title">
           Certifications & Awards
@@ -151,49 +151,60 @@ export default function Certification() {
           <div style={{
             backgroundColor: 'var(--color-surface)',
             border: '2px solid rgba(168, 85, 247, 0.25)',
-            borderRadius: '24px',
+            borderRadius: '8px',
             width: '100%',
             maxWidth: '800px',
-            padding: '40px',
+            maxHeight: '82vh',
+            overflowY: 'auto',
+            padding: 'clamp(20px, 4vw, 40px)',
             position: 'relative',
             boxShadow: 'var(--glow-shadow)',
+            transform: 'translateY(10px)',
             animation: 'fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards'
           }}
           onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
-            <button 
-              onClick={() => setActiveCert(null)}
-              style={{
-                position: 'absolute',
-                top: '24px',
-                right: '24px',
-                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid var(--color-border)',
-                width: '36px',
-                height: '36px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                transition: 'var(--transition-fast)'
-              }}
-            >
-              <X size={18} />
-            </button>
+            {/* Modal Header (Title + Close Button) */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: '20px',
+              gap: '16px'
+            }}>
+              <h2 style={{ fontSize: 'clamp(1.2rem, 3.5vw, 1.6rem)', fontWeight: 850, margin: 0 }}>{activeCert.title}</h2>
+              <button 
+                onClick={() => setActiveCert(null)}
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid var(--color-border)',
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  flexShrink: 0,
+                  transition: 'var(--transition-fast)',
+                  color: 'var(--color-text-main)'
+                }}
+              >
+                <X size={18} />
+              </button>
+            </div>
 
             {/* Certificate Content */}
             {activeCert.imageUrl && activeCert.imageUrl !== '/favicon.svg' ? (
               <div style={{
-                borderRadius: '16px',
+                borderRadius: '4px',
                 overflow: 'hidden',
                 border: '1px solid var(--color-border)',
                 backgroundColor: 'rgba(15, 23, 42, 0.3)',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                maxHeight: '55vh',
+                maxHeight: 'clamp(180px, 40vw, 42vh)',
                 width: '100%',
                 boxShadow: 'inset 0 0 20px rgba(0, 0, 0, 0.6)'
               }}>
@@ -202,7 +213,7 @@ export default function Certification() {
                   alt={activeCert.title} 
                   style={{
                     maxWidth: '100%',
-                    maxHeight: '55vh',
+                    maxHeight: '42vh',
                     objectFit: 'contain',
                     display: 'block'
                   }} 
@@ -212,7 +223,7 @@ export default function Certification() {
               /* Fallback: Generated Layout Mockup */
               <div style={{
                 border: '2px dashed rgba(255, 255, 255, 0.08)',
-                borderRadius: '16px',
+                borderRadius: '4px',
                 padding: '40px 20px',
                 textAlign: 'center',
                 backgroundColor: 'rgba(15, 23, 42, 0.5)',
@@ -307,12 +318,12 @@ export default function Certification() {
             {/* Verification details bottom */}
             <div style={{
               display: 'flex',
+              flexWrap: 'wrap',
               justifyContent: 'space-between',
               alignItems: 'center',
               marginTop: '24px',
               paddingTop: '20px',
               borderTop: '1px solid var(--color-border)',
-              flexWrap: 'wrap',
               gap: '12px'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--color-text-muted)', fontSize: '0.85rem' }}>

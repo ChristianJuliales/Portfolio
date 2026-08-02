@@ -45,7 +45,7 @@ export default function Projects() {
   const [activeProject, setActiveProject] = useState(null);
 
   return (
-    <div className="container animate-fade-in" style={{ padding: '40px 24px' }}>
+    <div className="container animate-fade-in" style={{ padding: 'clamp(24px, 4vw, 40px) clamp(16px, 3vw, 24px)' }}>
       <header style={{ marginBottom: '48px' }}>
         <h1 className="section-title">
           Projects Showcase
@@ -69,7 +69,7 @@ export default function Projects() {
                 overflow: 'hidden'
               }}
             >
-              <div style={{ height: '220px', width: '100%', overflow: 'hidden', borderBottom: '1px solid var(--color-border)', position: 'relative' }}>
+              <div className="project-img-wrap" style={{ height: '220px', width: '100%', overflow: 'hidden', borderBottom: '1px solid var(--color-border)', position: 'relative' }}>
                 <img 
                   src={project.imageUrl} 
                   alt={project.title} 
@@ -123,7 +123,7 @@ export default function Projects() {
           textAlign: 'center',
           padding: '60px 20px',
           border: '1px dashed var(--color-border)',
-          borderRadius: '16px',
+          borderRadius: '4px',
           color: 'var(--color-text-muted)'
         }}>
           No projects found matching your query.
@@ -151,45 +151,54 @@ export default function Projects() {
           <div style={{
             backgroundColor: 'var(--color-surface)',
             border: '1px solid var(--color-border)',
-            borderRadius: '24px',
+            borderRadius: '8px',
             width: '100%',
             maxWidth: '700px',
-            maxHeight: '90vh',
+            maxHeight: '82vh',
             overflowY: 'auto',
-            padding: '32px',
+            padding: 'clamp(20px, 4vw, 32px)',
             position: 'relative',
             boxShadow: 'var(--glow-shadow)',
+            transform: 'translateY(10px)',
             animation: 'fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards'
           }}
           onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
-            <button 
-              onClick={() => setActiveProject(null)}
-              style={{
-                position: 'absolute',
-                top: '24px',
-                right: '24px',
-                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid var(--color-border)',
-                width: '36px',
-                height: '36px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                transition: 'var(--transition-fast)'
-              }}
-            >
-              <X size={18} />
-            </button>
+            {/* Modal Header (Title + Close Button) */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: '20px',
+              gap: '16px'
+            }}>
+              <h2 style={{ fontSize: 'clamp(1.4rem, 4vw, 2.05rem)', fontWeight: 850, margin: 0 }}>{activeProject.title}</h2>
+              <button 
+                onClick={() => setActiveProject(null)}
+                style={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid var(--color-border)',
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  flexShrink: 0,
+                  transition: 'var(--transition-fast)',
+                  color: 'var(--color-text-main)'
+                }}
+              >
+                <X size={18} />
+              </button>
+            </div>
 
             {/* Modal Image */}
             <div style={{
               width: '100%',
-              height: '240px',
-              borderRadius: '16px',
+              height: 'clamp(160px, 30vw, 240px)',
+              borderRadius: '4px',
               overflow: 'hidden',
               marginBottom: '24px',
               border: '1px solid var(--color-border)'
@@ -201,14 +210,12 @@ export default function Projects() {
               />
             </div>
 
-            {/* Title & Technologies */}
+            {/* Technologies */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '16px' }}>
               {activeProject.technologies.map(tag => (
                 <span key={tag} className="badge badge-primary">{tag}</span>
               ))}
             </div>
-            
-            <h2 style={{ fontSize: '2.05rem', fontWeight: 850, marginBottom: '16px' }}>{activeProject.title}</h2>
             
             {/* Description */}
             <p style={{
@@ -224,6 +231,7 @@ export default function Projects() {
             {(activeProject.liveLink || activeProject.githubLink) && (
               <div style={{
                 display: 'flex',
+                flexWrap: 'wrap',
                 gap: '12px',
                 paddingTop: '20px',
                 borderTop: '1px solid var(--color-border)',
