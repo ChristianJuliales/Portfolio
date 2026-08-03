@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Award, Calendar, ShieldCheck, X, CheckCircle } from 'lucide-react';
 
 const seedCertifications = [
@@ -46,6 +47,17 @@ const seedCertifications = [
 
 export default function Certification() {
   const [activeCert, setActiveCert] = useState(null);
+
+  useEffect(() => {
+    if (activeCert) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [activeCert]);
 
   return (
     <div className="container animate-fade-in" style={{ padding: 'clamp(24px, 4vw, 40px) clamp(16px, 3vw, 24px)' }}>
@@ -131,13 +143,15 @@ export default function Certification() {
         </div>
 
       {/* Certificate Viewer Modal */}
-      {activeCert && (
+      {activeCert && createPortal(
         <div style={{
           position: 'fixed',
           top: 0,
           left: 0,
           right: 0,
           bottom: 0,
+          width: '100vw',
+          height: '100dvh',
           backgroundColor: 'rgba(9, 13, 22, 0.85)',
           backdropFilter: 'blur(8px)',
           display: 'flex',
@@ -154,7 +168,7 @@ export default function Certification() {
             borderRadius: '8px',
             width: '100%',
             maxWidth: '800px',
-            maxHeight: '82vh',
+            maxHeight: '82dvh',
             overflowY: 'auto',
             padding: 'clamp(20px, 4vw, 40px)',
             position: 'relative',
@@ -353,7 +367,8 @@ export default function Certification() {
             </div>
 
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

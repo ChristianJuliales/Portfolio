@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { ExternalLink, Code2, X } from 'lucide-react';
 
 const Github = ({ size = 24 }) => (
@@ -43,6 +44,17 @@ const seedProjects = [
 
 export default function Projects() {
   const [activeProject, setActiveProject] = useState(null);
+
+  useEffect(() => {
+    if (activeProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [activeProject]);
 
   return (
     <div className="container animate-fade-in" style={{ padding: 'clamp(24px, 4vw, 40px) clamp(16px, 3vw, 24px)' }}>
@@ -131,13 +143,15 @@ export default function Projects() {
       )}
 
       {/* Case Study Modal */}
-      {activeProject && (
+      {activeProject && createPortal(
         <div style={{
           position: 'fixed',
           top: 0,
           left: 0,
           right: 0,
           bottom: 0,
+          width: '100vw',
+          height: '100dvh',
           backgroundColor: 'rgba(9, 13, 22, 0.85)',
           backdropFilter: 'blur(8px)',
           display: 'flex',
@@ -154,7 +168,7 @@ export default function Projects() {
             borderRadius: '8px',
             width: '100%',
             maxWidth: '700px',
-            maxHeight: '82vh',
+            maxHeight: '82dvh',
             overflowY: 'auto',
             padding: 'clamp(20px, 4vw, 32px)',
             position: 'relative',
@@ -265,7 +279,8 @@ export default function Projects() {
             )}
 
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
