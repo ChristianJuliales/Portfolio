@@ -110,14 +110,6 @@ export default function Navbar({ activeTab, setActiveTab }) {
           <X size={18} />
         </button>
 
-        {/* Logo in drawer */}
-        <div
-          className="logo"
-          style={{ fontSize: '1.1rem', marginBottom: '24px', cursor: 'pointer' }}
-          onClick={() => handleNavClick('home')}
-        >
-          PORTFOLIO
-        </div>
 
         {navItems.map((item) => (
           <span
